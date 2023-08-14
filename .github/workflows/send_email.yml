@@ -1,9 +1,9 @@
-name: Send Email
+name: Send File as Email
 
 on:
   push:
     branches:
-      - main
+      - main # Adjust the branch name as needed
 
 jobs:
   send_email:
@@ -13,13 +13,19 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Install msmtp
-      run: sudo apt-get -y install msmtp
-
     - name: Create File
       run: echo "This is the content of the file." > my_file.txt
 
     - name: Send Email
-      run: |
-        chmod +x send_email.sh
-        ./send_email.sh
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL_USERNAME }} 
+        password: ${{ secrets.EMAIL_PASSWORD }} 
+        subject: "File Attachment"
+        from: igwejude@example.com
+        to: igwejude@example.com
+        body: "Attached is the file you requested."
+        attachments: |
+          my_file.txt
