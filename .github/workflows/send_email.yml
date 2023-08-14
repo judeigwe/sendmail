@@ -1,0 +1,22 @@
+name: Send Email
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Create File
+      run: echo "This is the content of the file." > my_file.txt
+
+    - name: Send Email
+      run: |
+        chmod +x send_email.sh
+        ./send_email.sh
