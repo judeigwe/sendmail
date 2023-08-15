@@ -13,10 +13,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Create File
-      run: echo "$var.email" > my_file.txt
-    - name: show value
-      run: cat my_file.txt
+    - name: Echo Email to File
+      run: echo "${{ secrets.EMAIL_SECRET }}" > email.txt
+
+    - name: Display File Contents
+      run: cat email.txt
 
     # - name: Send Email
     #   uses: dawidd6/action-send-mail@v3
