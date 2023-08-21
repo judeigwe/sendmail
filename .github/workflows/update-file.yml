@@ -8,6 +8,8 @@ on:
 jobs:
   update_properties:
     runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: Dev
     
     steps:
     - name: Checkout repository
@@ -15,5 +17,5 @@ jobs:
     
     - name: Append variable to file
       run: |
-        echo "QUARTZ_SECRETS=${{ env.QUARTZ_SECRETS }}" >> quartz.properties
+        echo "QUARTZ_SECRETS=${{ env.EMAIL }}" >> quartz.properties
         cat quartz.properties
