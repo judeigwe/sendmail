@@ -1,0 +1,19 @@
+name: Update Quartz Properties
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  update_properties:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Append variable to file
+      run: |
+        echo "QUARTZ_SECRETS=${{ env.QUARTZ_SECRETS }}" >> quartz.properties
+        cat quartz.properties
