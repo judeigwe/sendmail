@@ -17,5 +17,5 @@ jobs:
     
     - name: Append variable to file
       run: |
-        echo "QUARTZ_SECRETS=${{ env.EMAIL }}" >> quartz.properties
+        echo ${{ env.EMAIL }} >> quartz.properties
         cat quartz.properties
