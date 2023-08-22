@@ -7,14 +7,16 @@ on:
 
 jobs:
   update_properties:
+    strategy:
+      matrix:
+        environment: [DEV, TST] 
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
     
     - name: Append variable to file
-      env:
-        ENVIRONMENT: TST
       run: |
         echo "${{ vars.USER_NAME }}" >> quartz.properties
         cat quartz.properties
+     
