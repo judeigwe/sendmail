@@ -17,5 +17,5 @@ jobs:
     
     - name: Append variable to file
       run: |
-        echo "${{ vars.EMAIL }}" >> quartz.properties
+        echo "${{ vars.USER_NAME }}" >> quartz.properties
         cat quartz.properties
