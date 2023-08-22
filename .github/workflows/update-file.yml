@@ -10,6 +10,7 @@ jobs:
     strategy:
       matrix:
         environment: [DEV, TST] 
+    environment: "${{ matrix.environment }}"
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
