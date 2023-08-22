@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ENVIRONMENT: Dev
-    
+      
+    environment: ${{ env.ENVIRONMENT }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
