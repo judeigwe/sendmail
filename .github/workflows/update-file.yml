@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ENVIRONMENT: Dev
-      EMAIL: igwejude@gmail.com
+      #EMAIL: igwejude@gmail.com
     
     steps:
     - name: Checkout repository
@@ -18,5 +18,5 @@ jobs:
     
     - name: Append variable to file
       run: |
-        echo "${{ env.EMAIL }}" >> quartz.properties
+        echo "${{ var.EMAIL }}" >> quartz.properties
         cat quartz.properties
