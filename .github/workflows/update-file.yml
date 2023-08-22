@@ -9,7 +9,7 @@ jobs:
   update_properties:
     runs-on: ubuntu-latest
       
-    environment: Dev
+    environment: TST
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
