@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ENVIRONMENT: Dev
+      EMAIL: igwejude@gmail.com
     
     steps:
     - name: Checkout repository
