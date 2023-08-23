@@ -3,7 +3,7 @@ name: Send File as Email
 on:
   push:
     branches:
-      - main # Adjust the branch name as needed
+      - main 
 
 jobs:
   send_email:
