@@ -4,13 +4,17 @@ on:
   push:
     branches:
       - main  
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
+        default: Dev
 
 jobs:
   update_properties:
-    strategy:
-      matrix:
-        environment: [DEV, TST] 
-    environment: "${{ matrix.environment }}"
+    environment: "${{ inputs.environment }}"
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
